@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="ea7340c8-5b8e-480c-913d-9d3adc79f4c4";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <script>
+        $crisp.push([
+          "on",
+          "message:sent",
+          function (message) {
+            if (document.hidden === false) {
+              console.log("setting values");
+              $crisp.push([
+                "set",
+                "session:data",
+                [
+                  [
+                    ["data1", "page1"],
+                    ["data2", "page1"],
+                    ["data3", "page1"]
+                  ],
+                ],
+              ]);
+            }
+          },
+        ]);
+      </script>
+</head>
+
+<body>
+    <h1>This is Page 1</h1>
+    <p>Welcome to Page 1.</p>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "ea7340c8-5b8e-480c-913d-9d3adc79f4c4";
+      (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
+    <script>
+      $crisp.push([
+        "on",
+        "message:sent",
+        function (message) {
+          if (document.hidden === false) {
+            console.log("setting values");
+            $crisp.push([
+              "set",
+              "session:data",
+              [
+                [
+                  ["data1", "page0"],
+                  ["data2", "page0"],
+                  ["data3", "page0"]
+                ],
+              ],
+            ]);
+          }
+        },
+      ]);
+    </script>
+  </head>
+
+  <body>
+    <h1>Welcome to the Main Page</h1>
+    <a href="page1.html" target="_blank">Go to Page 1</a>
+    <br />
+    <a href="page2.html" target="_blank">Go to Page 2</a>
+    <br />
+    <br />
+    <a href="#" onClick='$crisp.push(["do", "session:reset"]);'>Reset session</a>
+  </body>
+</html>
